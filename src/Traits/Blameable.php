@@ -20,6 +20,13 @@ trait Blameable
         static::updating(function (Model $model) use ($config) {
             $model->setAttribute($config['updated_by_column'], Auth::id());
         });
+
+        static::deleting(function (Model $model) use ($config) {
+            $model->setAttribute($config['deleted_by_column'], Auth::id());
+
+            // we need to call the save ourselves when deleting
+            $model->save();
+        });
     }
 
     public function creator()
