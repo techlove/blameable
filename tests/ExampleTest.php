@@ -3,6 +3,7 @@
 namespace AppKit\Blameable\Tests;
 
 use AppKit\Blameable\Tests\Models\Article;
+
 class ExampleTest extends TestCase
 {
     /** @test */

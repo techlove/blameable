@@ -54,7 +54,7 @@ class BlameableServiceProvider extends ServiceProvider
 
         // Register the main class to use with the facade
         $this->app->singleton('blameable', function () {
-            return new Blameable;
+            return new Blameable();
         });
     }
 }
