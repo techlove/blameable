@@ -1,8 +1,9 @@
 <?php
 
 /*
- * You can place your custom package configuration in here.
+ * Blameable configuration.
  */
 return [
-
+    'created_by_column' => 'created_by',
+    'updated_by_column' => 'updated_by',
 ];

@@ -10,23 +10,25 @@ trait Blameable
 {
     public static function bootBlameable()
     {
-        static::creating(function (Model $model) {
-            $model->setAttribute('created_by', Auth::id());
-            $model->setAttribute('updated_by', Auth::id());
+        $config = config('blameable');
+
+        static::creating(function (Model $model) use ($config) {
+            $model->setAttribute($config['created_by_column'], Auth::id());
+            $model->setAttribute($config['updated_by_column'], Auth::id());
         });
 
-        static::updating(function (Model $model) {
-            $model->setAttribute('updated_by', Auth::id());
+        static::updating(function (Model $model) use ($config) {
+            $model->setAttribute($config['updated_by_column'], Auth::id());
         });
     }
 
     public function creator()
     {
-        return $this->belongsTo(BlameableFacade::userModel(), 'created_by');
+        return $this->belongsTo(BlameableFacade::userModel(), config('blameable.created_by_column'));
     }
 
     public function editor()
     {
-        return $this->belongsTo(BlameableFacade::userModel(), 'updated_by');
+        return $this->belongsTo(BlameableFacade::userModel(), config('blameable.updated_by_column'));
     }
 }
