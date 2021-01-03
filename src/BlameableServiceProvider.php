@@ -2,6 +2,7 @@
 
 namespace AppKit\Blameable;
 
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\ServiceProvider;
 
 class BlameableServiceProvider extends ServiceProvider
@@ -55,6 +56,11 @@ class BlameableServiceProvider extends ServiceProvider
         // Register the main class to use with the facade
         $this->app->singleton('blameable', function () {
             return new Blameable();
+        });
+
+        Blueprint::macro('blameable', function () {
+            $this->integer('created_by')->nullable();
+            $this->integer('updated_by')->nullable();
         });
     }
 }
