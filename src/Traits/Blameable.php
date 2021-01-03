@@ -13,5 +13,9 @@ trait Blameable
             $model->setAttribute('created_by', Auth::id());
             $model->setAttribute('updated_by', Auth::id());
         });
+
+        static::updating(function (Model $model) {
+            $model->setAttribute('updated_by', Auth::id());
+        });
     }
 }

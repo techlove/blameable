@@ -46,4 +46,29 @@ class BlameableTest extends TestCase
         // the article should have a updated_by set to the user
         $this->assertEquals($user->id, $article->updated_by);
     }
+
+    /** @test */
+    public function whenAModelIsUpdatedTheUpdatedByFieldIsSetCorrectly()
+    {
+        // when a user logins
+        $creator = factory(User::class)->create();
+        Auth::login($creator);
+
+        // and created an article
+        $article = factory(Article::class)->create();
+
+        // and another user, who is logged in
+        $editor = factory(User::class)->create();
+        Auth::login($editor);
+
+        // makes a change
+        $article->update([
+            'title' => 'My new title',
+        ]);
+
+        $article = $article->fresh();
+
+        // the article should have a updated_by set to the user
+        $this->assertEquals($editor->id, $article->updated_by);
+    }
 }
