@@ -2,7 +2,7 @@
 
 namespace AppKit\Blameable;
 
-use AppKit\Blameable\Facades\Blameable as FacadesBlameable;
+use AppKit\Blameable\Facades\Blameable as BlameableFacade;
 
 class Blameable
 {
@@ -20,14 +20,14 @@ class Blameable
 
     public function provider()
     {
-        $guard = FacadesBlameable::guard();
+        $guard = BlameableFacade::guard();
 
         return $this->app['config']->get("auth.guards.$guard.provider");
     }
 
     public function userModel()
     {
-        $provider = FacadesBlameable::provider();
+        $provider = BlameableFacade::provider();
 
         return $this->app['config']->get("auth.providers.$provider.model");
     }
