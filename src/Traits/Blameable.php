@@ -39,7 +39,7 @@ trait Blameable
         return $this->belongsTo(BlameableFacade::userModel(), config('blameable.columns.updated_by'));
     }
 
-    public function deletor()
+    public function deleter()
     {
         return $this->belongsTo(BlameableFacade::userModel(), config('blameable.columns.deleted_by'));
     }

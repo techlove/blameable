@@ -145,7 +145,7 @@ class BlameableTest extends TestCase
     }
 
     /** @test */
-    public function testTheModelWillContainARelationshipToTheDeletor()
+    public function testTheModelWillContainARelationshipToThedeleter()
     {
         // when a user logins
         $user = factory(User::class)->create();
@@ -160,7 +160,7 @@ class BlameableTest extends TestCase
         $article = ArticleSoftDeletes::withTrashed()->first();
 
         // the article should have a deleted_by set to the user
-        $this->assertTrue($article->deletor->is($user));
+        $this->assertTrue($article->deleter->is($user));
     }
 
     public function testTheFacadeCanGetTheDefaultGuard()
