@@ -1,10 +1,10 @@
 <?php
 
-namespace AppKit\:package_name_php\Tests;
+namespace AppKit\Blameable\Tests;
 
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use AppKit\:package_name_php\:package_name_phpFacade;
-use AppKit\:package_name_php\:package_name_phpServiceProvider;
+use AppKit\Blameable\BlameableFacade;
+use AppKit\Blameable\BlameableServiceProvider;
 
 class TestCase extends OrchestraTestCase
 {
@@ -33,7 +33,7 @@ class TestCase extends OrchestraTestCase
      */
     protected function getPackageProviders($app)
     {
-        return [:package_name_phpServiceProvider::class];
+        return [BlameableServiceProvider::class];
     }
 
     /**
@@ -45,7 +45,7 @@ class TestCase extends OrchestraTestCase
     protected function getPackageAliases($app)
     {
         return [
-            ':package_name_php' => :package_name_phpFacade::class
+            'Blameable' => BlameableFacade::class
         ];
     }
 

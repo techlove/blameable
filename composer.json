@@ -1,12 +1,12 @@
 {
-    "name": "laravel-appkit/:package_name",
+    "name": "laravel-appkit/blameable",
     "description": "",
     "keywords": [
         "laravel",
         "appkit",
-        ":package_name"
+        "blameable"
     ],
-    "homepage": "https://github.com/laravel-appkit/:package_name",
+    "homepage": "https://github.com/laravel-appkit/blameable",
     "license": "MIT",
     "type": "library",
     "authors": [
@@ -27,12 +27,12 @@
     },
     "autoload": {
         "psr-4": {
-            "AppKit\\:package_name_php\\": "src"
+            "AppKit\\Blameable\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "AppKit\\:package_name_php\\Tests\\": "tests"
+            "AppKit\\Blameable\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -42,10 +42,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "AppKit\\:package_name_php\\:package_name_phpServiceProvider"
+                "AppKit\\Blameable\\BlameableServiceProvider"
             ],
             "aliases": {
-                ":package_name_php": "AppKit\\:package_name_php\\:package_name_phpFacade"
+                "Blameable": "AppKit\\Blameable\\BlameableFacade"
             }
         }
     }

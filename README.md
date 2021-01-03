@@ -1,10 +1,10 @@
 # Very short description of the package
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-appkit/:package_name.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/:package_name)
-[![Build Status](https://img.shields.io/travis/laravel-appkit/:package_name/master.svg?style=flat-square)](https://travis-ci.org/laravel-appkit/:package_name)
-[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-appkit/:package_name.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-appkit/:package_name)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel-appkit/:package_name.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/:package_name)
-[![Licence](https://img.shields.io/packagist/l/laravel-appkit/:package_name.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/:package_name)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/laravel-appkit/blameable.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/blameable)
+[![Build Status](https://img.shields.io/travis/laravel-appkit/blameable/master.svg?style=flat-square)](https://travis-ci.org/laravel-appkit/blameable)
+[![Quality Score](https://img.shields.io/scrutinizer/g/laravel-appkit/blameable.svg?style=flat-square)](https://scrutinizer-ci.com/g/laravel-appkit/blameable)
+[![Total Downloads](https://img.shields.io/packagist/dt/laravel-appkit/blameable.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/blameable)
+[![Licence](https://img.shields.io/packagist/l/laravel-appkit/blameable.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/blameable)
 This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
 
 ## Installation
@@ -12,7 +12,7 @@ This is where your description should go. Try and limit it to a paragraph or two
 You can install the package via composer:
 
 ```bash
-composer require laravel-appkit/:package_name
+composer require laravel-appkit/blameable
 ```
 
 ## Usage

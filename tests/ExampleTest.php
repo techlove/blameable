@@ -1,8 +1,8 @@
 <?php
 
-namespace AppKit\:package_name_php\Tests;
+namespace AppKit\Blameable\Tests;
 
-use AppKit\:package_name_php\Tests\Models\Article;
+use AppKit\Blameable\Tests\Models\Article;
 class ExampleTest extends TestCase
 {
     /** @test */
