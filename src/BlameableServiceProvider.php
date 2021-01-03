@@ -59,6 +59,7 @@ class BlameableServiceProvider extends ServiceProvider
         });
 
         Blueprint::macro('blameable', function () {
+            /** @var \Illuminate\Database\Schema\Blueprint $this */
             $this->integer('created_by')->nullable();
             $this->integer('updated_by')->nullable();
         });
