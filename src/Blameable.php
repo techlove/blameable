@@ -2,7 +2,7 @@
 
 namespace AppKit\Blameable;
 
-use AppKit\Blameable\Facades\Blameable as BlameableFacade;
+use Illuminate\Support\Facades\Auth;
 
 class Blameable
 {
@@ -30,5 +30,15 @@ class Blameable
         $provider = $this->provider();
 
         return $this->app['config']->get("auth.providers.$provider.model");
+    }
+
+    public function getUser()
+    {
+        if (!Auth::check()) {
+            // we don't have a user
+            return null;
+        }
+
+        return Auth::id();
     }
 }

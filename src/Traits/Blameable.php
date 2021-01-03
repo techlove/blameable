@@ -5,23 +5,22 @@ namespace AppKit\Blameable\Traits;
 use AppKit\Blameable\Facades\Blameable as BlameableFacade;
 use ErrorException;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Auth;
 
 trait Blameable
 {
     public static function bootBlameable()
     {
         static::creating(function (Model $model) {
-            $model->setAttribute($model->getBlameableColumn('created_by'), Auth::id());
-            $model->setAttribute($model->getBlameableColumn('updated_by'), Auth::id());
+            $model->setAttribute($model->getBlameableColumn('created_by'), BlameableFacade::getUser());
+            $model->setAttribute($model->getBlameableColumn('updated_by'), BlameableFacade::getUser());
         });
 
         static::updating(function (Model $model) {
-            $model->setAttribute($model->getBlameableColumn('updated_by'), Auth::id());
+            $model->setAttribute($model->getBlameableColumn('updated_by'), BlameableFacade::getUser());
         });
 
         static::deleting(function (Model $model) {
-            $model->setAttribute($model->getBlameableColumn('deleted_by'), Auth::id());
+            $model->setAttribute($model->getBlameableColumn('deleted_by'), BlameableFacade::getUser());
 
             // we need to call the save ourselves when deleting
             $model->save();
