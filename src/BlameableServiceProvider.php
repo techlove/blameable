@@ -32,15 +32,24 @@ class BlameableServiceProvider extends ServiceProvider
             return new Blameable();
         });
 
-        Blueprint::macro('blameable', function ($softDeletes = false) {
+        Blueprint::macro('blameable', function (
+            $softDeletes = false,
+            $createdColumn = null,
+            $updatedColumn = null,
+            $deletedColumn = null
+        ) {
             /** @var \Illuminate\Database\Schema\Blueprint $this */
             $columns = config('blameable.columns');
 
-            $this->integer($columns['created_by'])->nullable();
-            $this->integer($columns['updated_by'])->nullable();
+            $createdColumn = $createdColumn ?? $columns['created_by'];
+            $updatedColumn = $updatedColumn ?? $columns['updated_by'];
+            $deletedColumn = $deletedColumn ?? $columns['deleted_by'];
+
+            $this->integer($createdColumn)->nullable();
+            $this->integer($updatedColumn)->nullable();
 
             if ($softDeletes) {
-                $this->integer($columns['deleted_by'])->nullable();
+                $this->integer($deletedColumn)->nullable();
             }
         });
     }
