@@ -33,7 +33,8 @@ trait Blameable
         return config('blameable.columns');
     }
 
-    private function getBlameableColumn($column) {
+    private function getBlameableColumn($column)
+    {
         $columns = $this->blameableColumns();
 
         if (!array_key_exists($column, $columns)) {
