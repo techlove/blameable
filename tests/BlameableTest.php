@@ -73,21 +73,6 @@ class BlameableTest extends TestCase
         $this->assertEquals($editor->id, $article->updated_by);
     }
 
-    public function testTheFacadeCanGetTheDefaultGuard()
-    {
-        return $this->assertEquals('web', Blameable::guard());
-    }
-
-    public function testTheFacadeCanGetTheDefaultAuthProvider()
-    {
-        return $this->assertEquals('users', Blameable::provider());
-    }
-
-    public function testTheFacadeCanGetTheDefaultUserModel()
-    {
-        return $this->assertEquals(User::class, Blameable::userModel());
-    }
-
     public function testTheModelWillContainARelationshipToTheCreator()
     {
         // when a user logins
@@ -123,5 +108,20 @@ class BlameableTest extends TestCase
 
         // the article should have a created_by set to the user
         $this->assertTrue($article->editor->is($editor));
+    }
+
+    public function testTheFacadeCanGetTheDefaultGuard()
+    {
+        return $this->assertEquals('web', Blameable::guard());
+    }
+
+    public function testTheFacadeCanGetTheDefaultAuthProvider()
+    {
+        return $this->assertEquals('users', Blameable::provider());
+    }
+
+    public function testTheFacadeCanGetTheDefaultUserModel()
+    {
+        return $this->assertEquals(User::class, Blameable::userModel());
     }
 }
