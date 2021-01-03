@@ -144,6 +144,25 @@ class BlameableTest extends TestCase
         $this->assertTrue($article->editor->is($editor));
     }
 
+    /** @test */
+    public function testTheModelWillContainARelationshipToTheDeletor()
+    {
+        // when a user logins
+        $user = factory(User::class)->create();
+        Auth::login($user);
+
+        // and created an article
+        $article = factory(ArticleSoftDeletes::class)->create();
+
+        // when the article is deleted
+        $article->delete();
+
+        $article = ArticleSoftDeletes::withTrashed()->first();
+
+        // the article should have a deleted_by set to the user
+        $this->assertTrue($article->deletor->is($user));
+    }
+
     public function testTheFacadeCanGetTheDefaultGuard()
     {
         return $this->assertEquals('web', Blameable::guard());
