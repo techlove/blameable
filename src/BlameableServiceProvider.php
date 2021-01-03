@@ -12,14 +12,6 @@ class BlameableServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'blameable');
-        // $this->loadViewsFrom(__DIR__ . '/../resources/views', 'blameable');
-        // $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__ . '/../routes/blameable.php');
-
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../config/config.php' => config_path('blameable.php'),
