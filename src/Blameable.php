@@ -20,14 +20,14 @@ class Blameable
 
     public function provider()
     {
-        $guard = BlameableFacade::guard();
+        $guard = $this->guard();
 
         return $this->app['config']->get("auth.guards.$guard.provider");
     }
 
     public function userModel()
     {
-        $provider = BlameableFacade::provider();
+        $provider = $this->provider();
 
         return $this->app['config']->get("auth.providers.$provider.model");
     }
