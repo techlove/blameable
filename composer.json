@@ -45,7 +45,7 @@
                 "AppKit\\Blameable\\BlameableServiceProvider"
             ],
             "aliases": {
-                "Blameable": "AppKit\\Blameable\\BlameableFacade"
+                "Blameable": "AppKit\\Blameable\\Facades\\Blameable"
             }
         }
     }

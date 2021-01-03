@@ -1,13 +1,13 @@
 <?php
 
-namespace AppKit\Blameable;
+namespace AppKit\Blameable\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \AppKit\Package\Skeleton\SkeletonClass
+ * @see \AppKit\Blameable\Blameable
  */
-class BlameableFacade extends Facade
+class Blameable extends Facade
 {
     /**
      * Get the registered name of the component.
