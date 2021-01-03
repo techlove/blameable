@@ -10,19 +10,19 @@ trait Blameable
 {
     public static function bootBlameable()
     {
-        $config = config('blameable');
+        $columns = config('blameable.columns');
 
-        static::creating(function (Model $model) use ($config) {
-            $model->setAttribute($config['created_by_column'], Auth::id());
-            $model->setAttribute($config['updated_by_column'], Auth::id());
+        static::creating(function (Model $model) use ($columns) {
+            $model->setAttribute($columns['created_by'], Auth::id());
+            $model->setAttribute($columns['updated_by'], Auth::id());
         });
 
-        static::updating(function (Model $model) use ($config) {
-            $model->setAttribute($config['updated_by_column'], Auth::id());
+        static::updating(function (Model $model) use ($columns) {
+            $model->setAttribute($columns['updated_by'], Auth::id());
         });
 
-        static::deleting(function (Model $model) use ($config) {
-            $model->setAttribute($config['deleted_by_column'], Auth::id());
+        static::deleting(function (Model $model) use ($columns) {
+            $model->setAttribute($columns['deleted_by'], Auth::id());
 
             // we need to call the save ourselves when deleting
             $model->save();
@@ -31,11 +31,11 @@ trait Blameable
 
     public function creator()
     {
-        return $this->belongsTo(BlameableFacade::userModel(), config('blameable.created_by_column'));
+        return $this->belongsTo(BlameableFacade::userModel(), config('blameable.columns.created_by'));
     }
 
     public function editor()
     {
-        return $this->belongsTo(BlameableFacade::userModel(), config('blameable.updated_by_column'));
+        return $this->belongsTo(BlameableFacade::userModel(), config('blameable.columns.updated_by'));
     }
 }
