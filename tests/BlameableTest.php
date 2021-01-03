@@ -87,4 +87,41 @@ class BlameableTest extends TestCase
     {
         return $this->assertEquals(User::class, Blameable::userModel());
     }
+
+    public function testTheModelWillContainARelationshipToTheCreator()
+    {
+        // when a user logins
+        $user = factory(User::class)->create();
+        Auth::login($user);
+
+        // and created an article
+        $article = factory(Article::class)->create();
+
+        // the article should have a created_by set to the user
+        $this->assertTrue($article->creator->is($user));
+    }
+
+    public function testTheModelWillContainARelationshipToTheEditor()
+    {
+        // when a user logins
+        $creator = factory(User::class)->create();
+        Auth::login($creator);
+
+        // and created an article
+        $article = factory(Article::class)->create();
+
+        // and another user, who is logged in
+        $editor = factory(User::class)->create();
+        Auth::login($editor);
+
+        // makes a change
+        $article->update([
+            'title' => 'My new title',
+        ]);
+
+        $article = $article->fresh();
+
+        // the article should have a created_by set to the user
+        $this->assertTrue($article->editor->is($editor));
+    }
 }
