@@ -21,7 +21,7 @@ class TestCase extends OrchestraTestCase
         // load default laravel migrations?
         // $this->loadLaravelMigrations();
 
-        // load the model factoies
+        // load the model factories
         $this->withFactories(__DIR__ . '/database/factories');
     }
 

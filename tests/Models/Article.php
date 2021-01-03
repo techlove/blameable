@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     /**
-     * Fillable attributes
+     * The attributes that are mass assignable.
+     *
+     * @var array
      */
     protected $fillable = [
         'title',
