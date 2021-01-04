@@ -14,11 +14,11 @@ jobs:
         stability: [prefer-lowest, prefer-stable]
         include:
           - laravel: 6.*
-            testbench: 4.*
+            testbench: 4.13
           - laravel: 7.*
-            testbench: 5.8
+            testbench: ^5.12
           - laravel: 8.*
-            testbench: 6.7
+            testbench: ^6.7
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} (Testbench ${{ matrix.testbench }}) (${{ matrix.stability }}) - Running on ${{ matrix.os }}
 
