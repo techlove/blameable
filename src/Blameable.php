@@ -2,11 +2,13 @@
 
 namespace AppKit\Blameable;
 
+use ErrorException;
 use Illuminate\Support\Facades\Auth;
 
 class Blameable
 {
     private $app;
+    private $userCallback;
 
     public function __construct()
     {
@@ -39,6 +41,19 @@ class Blameable
             return null;
         }
 
+        if (is_callable($this->userCallback)) {
+            return call_user_func($this->userCallback);
+        }
+
         return Auth::id();
+    }
+
+    public function userCallback($callback)
+    {
+        if (!is_callable($callback)) {
+            throw new ErrorException('The user callback must be callable');
+        }
+
+        $this->userCallback = $callback;
     }
 }
