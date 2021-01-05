@@ -2,6 +2,7 @@
 
 namespace AppKit\Blameable\Tests;
 
+use AppKit\Blameable\Facades\Blameable;
 use AppKit\Blameable\Tests\Models\Article;
 use AppKit\Blameable\Tests\Models\ArticleSoftDeletes;
 use AppKit\Blameable\Tests\Models\User;
@@ -138,5 +139,24 @@ class BlameableModelTest extends TestCase
 
         // the article should have a deleted_by set to the user
         $this->assertTrue($article->deleter->is($user));
+    }
+
+    /* @test */
+    public function testACustomMethodCanBeUsedToGetTheUserId()
+    {
+        // we specify a custom closure to provide the user id
+        Blameable::userCallback(function () {
+            return Auth::id() * 10;
+        });
+
+        // when a user logins
+        $user = factory(User::class)->create();
+        Auth::login($user);
+
+        // and created an article
+        $article = factory(Article::class)->create();
+
+        // the article should have a created_by set to the user
+        $this->assertEquals($user->id * 10, $article->created_by);
     }
 }
