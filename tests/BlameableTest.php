@@ -40,16 +40,19 @@ class BlameableTest extends TestCase
         $this->assertTrue(Schema::hasColumn('articles_custom_columns', 'user_who_deleted'));
     }
 
+    /* @test */
     public function testTheFacadeCanGetTheDefaultGuard()
     {
         return $this->assertEquals('web', Blameable::guard());
     }
 
+    /* @test */
     public function testTheFacadeCanGetTheDefaultAuthProvider()
     {
         return $this->assertEquals('users', Blameable::provider());
     }
 
+    /* @test */
     public function testTheFacadeCanGetTheDefaultUserModel()
     {
         return $this->assertEquals(User::class, Blameable::userModel());

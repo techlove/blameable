@@ -85,6 +85,7 @@ class BlameableModelTest extends TestCase
         $this->assertEquals($user->id, $article->deleted_by);
     }
 
+    /* @test */
     public function testTheModelWillContainARelationshipToTheCreator()
     {
         // when a user logins
@@ -98,6 +99,7 @@ class BlameableModelTest extends TestCase
         $this->assertTrue($article->creator->is($user));
     }
 
+    /* @test */
     public function testTheModelWillContainARelationshipToTheEditor()
     {
         // when a user logins

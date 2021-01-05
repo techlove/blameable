@@ -85,6 +85,7 @@ class BlameableCustomColumnsModelTest extends TestCase
         $this->assertEquals($user->id, $article->user_who_deleted);
     }
 
+    /* @test */
     public function testTheModelWillContainARelationshipToTheCreator()
     {
         // when a user logins
@@ -98,6 +99,7 @@ class BlameableCustomColumnsModelTest extends TestCase
         $this->assertTrue($article->creator->is($user));
     }
 
+    /* @test */
     public function testTheModelWillContainARelationshipToTheEditor()
     {
         // when a user logins
