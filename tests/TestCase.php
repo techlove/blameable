@@ -3,8 +3,9 @@
 namespace AppKit\Blameable\Tests;
 
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
-use AppKit\Blameable\BlameableFacade;
 use AppKit\Blameable\BlameableServiceProvider;
+use AppKit\Blameable\Facades\Blameable;
+use AppKit\Blameable\Tests\Models\User;
 
 class TestCase extends OrchestraTestCase
 {
@@ -21,7 +22,7 @@ class TestCase extends OrchestraTestCase
         // load default laravel migrations?
         // $this->loadLaravelMigrations();
 
-        // load the model factoies
+        // load the model factories
         $this->withFactories(__DIR__ . '/database/factories');
     }
 
@@ -45,7 +46,7 @@ class TestCase extends OrchestraTestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Blameable' => BlameableFacade::class
+            'Blameable' => Blameable::class
         ];
     }
 
@@ -64,5 +65,6 @@ class TestCase extends OrchestraTestCase
             'database' => ':memory:',
             'prefix'   => '',
         ]);
+        $app['config']->set('auth.providers.users.model', User::class);
     }
 }

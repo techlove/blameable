@@ -1,8 +1,12 @@
 <?php
 
 /*
- * You can place your custom package configuration in here.
+ * Blameable configuration.
  */
 return [
-
+    'columns' => [
+        'created_by' => 'created_by',
+        'updated_by' => 'updated_by',
+        'deleted_by' => 'deleted_by',
+    ],
 ];

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateArticlesTable extends Migration
+class CreateArticlesCustomColumnsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateArticlesTable extends Migration
      */
     public function up()
     {
-        Schema::create('articles', function (Blueprint $table) {
+        Schema::create('articles_custom_columns', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
             $table->text('body');
             $table->timestamps();
-            $table->blameable();
+            $table->blameable(true, 'user_who_created', 'user_who_updated', 'user_who_deleted');
+            $table->softDeletes();
         });
     }
 
@@ -29,6 +30,6 @@ class CreateArticlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('articles');
+        Schema::dropIfExists('articles_custom_columns');
     }
 }
