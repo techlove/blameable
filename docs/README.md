@@ -35,8 +35,6 @@ Schema::create('articles', function (Blueprint $table) {
 Next, add the `AppKit\Blameable\Traits\Blameable` trait to the model
 
 ``` php
-<?php
-
 namespace App\Models;
 
 use AppKit\Blameable\Traits\Blameable;
