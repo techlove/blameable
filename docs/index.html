@@ -12,11 +12,15 @@
     window.$docsify = {
        name: 'Blameable',
        repo: 'https://github.com/laravel-appkit/blameable',
-       autoHeader: true
+       autoHeader: true,
+       plugins: [
+           EditOnGithubPlugin.create(docBase, docEditBase, title)
+       ]
     }
   </script>
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//unpkg.com/prismjs/components/prism-php.min.js"></script>
   <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-edit-on-github"></script>
 </body>
 </html>
