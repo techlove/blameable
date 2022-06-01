@@ -20,6 +20,6 @@ class ArticleSoftDeletes extends Model
      */
     protected $fillable = [
         'title',
-        'body'
+        'body',
     ];
 }

@@ -4,7 +4,6 @@ namespace AppKit\Blameable\Tests;
 
 use AppKit\Blameable\Tests\Models\Article;
 use AppKit\Blameable\Tests\Models\ArticleCustomColumns;
-use AppKit\Blameable\Tests\Models\ArticleSoftDeletes;
 use AppKit\Blameable\Tests\Models\User;
 use Illuminate\Support\Facades\Auth;
 
