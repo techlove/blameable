@@ -18,4 +18,7 @@
     <logging>
         <junit outputFile="build/report.junit.xml"/>
     </logging>
+    <include>
+        <directory suffix=".php">src</directory>
+    </include>
 </phpunit>
