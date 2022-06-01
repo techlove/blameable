@@ -33,3 +33,5 @@ jobs:
         with: 
           title: Update Changelog for Version ${{ github.event.release.name }}
           reviewers: darrencoutts118
+          branch: changelog-${{ github.event.release.name }}
+          base: main
