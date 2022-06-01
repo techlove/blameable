@@ -1,9 +1,6 @@
 <?php
 
 $finder = Symfony\Component\Finder\Finder::create()
-    ->notPath('bootstrap/*')
-    ->notPath('storage/*')
-    ->notPath('resources/view/mail/*')
     ->in([
         __DIR__ . '/src',
         __DIR__ . '/tests',
@@ -13,48 +10,31 @@ $finder = Symfony\Component\Finder\Finder::create()
     ->ignoreDotFiles(true)
     ->ignoreVCS(true);
 
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setRules([
-        '@PSR2' => true,
-        'array_syntax' => [
-            'syntax' => 'short'
+        '@PSR12' => true,
+        'array_syntax' => ['syntax' => 'short'],
+        'ordered_imports' => ['sort_algorithm' => 'alpha'],
+        'no_unused_imports' => true,
+        'not_operator_with_successor_space' => true,
+        'trailing_comma_in_multiline' => true,
+        'phpdoc_scalar' => true,
+        'unary_operator_spaces' => true,
+        'binary_operator_spaces' => true,
+        'blank_line_before_statement' => [
+            'statements' => ['break', 'continue', 'declare', 'return', 'throw', 'try'],
         ],
-        'blank_line_after_opening_tag' => true,
-        /*'braces' => [
-            'allow_single_line_anonymous_class_with_empty_body' => true,
-        ],*/
-        'compact_nullable_typehint' => true,
-        'declare_equal_normalize' => true,
-        'lowercase_cast' => true,
-        'lowercase_static_reference' => true,
-        'new_with_braces' => true,
-        'no_blank_lines_after_class_opening' => true,
-        'no_leading_import_slash' => true,
-        'no_whitespace_in_blank_line' => true,
-        'ordered_class_elements' => [
-            'order' => [
-                'use_trait',
-            ],
-        ],
-        'ordered_imports' => [
-            'imports_order' => [
-                'class',
-                'function',
-                'const',
-            ],
-            'sort_algorithm' => 'none',
-        ],
-        'return_type_declaration' => true,
-        'short_scalar_cast' => true,
-        'single_blank_line_before_namespace' => true,
-        'single_trait_insert_per_statement' => true,
-        'ternary_operator_spaces' => true,
-        'visibility_required' => [
+        'phpdoc_single_line_var_spacing' => true,
+        'phpdoc_var_without_name' => true,
+        'class_attributes_separation' => [
             'elements' => [
-                'const',
-                'method',
-                'property',
+                'method' => 'one',
             ],
         ],
+        'method_argument_space' => [
+            'on_multiline' => 'ensure_fully_multiline',
+            'keep_multiple_spaces_after_comma' => true,
+        ],
+        'single_trait_insert_per_statement' => true,
     ])
     ->setFinder($finder);
