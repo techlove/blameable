@@ -2,10 +2,10 @@
 
 namespace AppKit\Blameable\Tests;
 
-use Orchestra\Testbench\TestCase as OrchestraTestCase;
 use AppKit\Blameable\BlameableServiceProvider;
 use AppKit\Blameable\Facades\Blameable;
 use AppKit\Blameable\Tests\Models\User;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 class TestCase extends OrchestraTestCase
 {
@@ -46,7 +46,7 @@ class TestCase extends OrchestraTestCase
     protected function getPackageAliases($app)
     {
         return [
-            'Blameable' => Blameable::class
+            'Blameable' => Blameable::class,
         ];
     }
 
@@ -61,9 +61,9 @@ class TestCase extends OrchestraTestCase
         // Setup default database to use sqlite :memory:
         $app['config']->set('database.default', 'testbench');
         $app['config']->set('database.connections.testbench', [
-            'driver'   => 'sqlite',
+            'driver' => 'sqlite',
             'database' => ':memory:',
-            'prefix'   => '',
+            'prefix' => '',
         ]);
         $app['config']->set('auth.providers.users.model', User::class);
     }

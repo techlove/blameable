@@ -56,7 +56,7 @@ class Blameable
      */
     public function getUser()
     {
-        if (!Auth::check()) {
+        if (! Auth::check()) {
             // we don't have a user
             return null;
         }
@@ -77,7 +77,7 @@ class Blameable
      */
     public function userCallback($callback)
     {
-        if (!is_callable($callback)) {
+        if (! is_callable($callback)) {
             throw new ErrorException('The user callback must be callable');
         }
 

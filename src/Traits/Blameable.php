@@ -58,7 +58,7 @@ trait Blameable
     {
         $columns = $this->blameableColumns();
 
-        if (!array_key_exists($column, $columns)) {
+        if (! array_key_exists($column, $columns)) {
             throw new ErrorException("Blameable does not contain a $column column.");
         }
 

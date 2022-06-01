@@ -20,7 +20,7 @@ class ArticleCustomColumns extends Model
      */
     protected $fillable = [
         'title',
-        'body'
+        'body',
     ];
 
     public function blameableColumns(): array
