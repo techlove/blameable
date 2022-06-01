@@ -1,4 +1,4 @@
-name: Check & fix styling
+name: PSR-12 Coding Standards
 
 on: [push]
 
