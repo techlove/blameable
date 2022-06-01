@@ -18,7 +18,12 @@
     <logging>
         <junit outputFile="build/report.junit.xml"/>
     </logging>
-    <include>
-        <directory suffix=".php">src</directory>
-    </include>
+    <coverage>
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+        <report>
+            <html outputDirectory="public/test-coverage-report/" />
+        </report>
+    </coverage>
 </phpunit>
