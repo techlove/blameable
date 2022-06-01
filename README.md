@@ -5,6 +5,7 @@
 [![Quality Score](https://img.shields.io/github/workflow/status/laravel-appkit/blameable/Check%20&%20fix%20styling?label=code%20quality&style=flat-square)](https://github.com/laravel-appkit/blameable/actions?query=workflow%3A%22Check+%26+fix+styling%22)
 [![Total Downloads](https://img.shields.io/packagist/dt/laravel-appkit/blameable.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/blameable)
 [![Licence](https://img.shields.io/packagist/l/laravel-appkit/blameable.svg?style=flat-square)](https://packagist.org/packages/laravel-appkit/blameable)
+[![codecov](https://codecov.io/gh/laravel-appkit/blameable/branch/main/graph/badge.svg)](https://codecov.io/gh/laravel-appkit/blameable)
 
 This package allows you to store the creator (`created_by`) and last editor (`edited_by`) of an Eloquent Model. You can also store the user who soft deleted a model.
 
