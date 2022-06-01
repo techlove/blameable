@@ -17,6 +17,9 @@ jobs:
             testbench: ^6.7
           - laravel: 9.*
             testbench: 7.*
+        exclude:
+          - laravel: 9.*
+            php: 7.4
 
     name: Laravel ${{ matrix.laravel }} - PHP ${{ matrix.php }} (${{ matrix.stability }}) - Running on ${{ matrix.os }}
 
