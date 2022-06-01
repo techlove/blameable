@@ -1,4 +1,4 @@
-name: dependabot-auto-merge
+name: Automerge Dependabot Updates
 on: pull_request_target
 
 permissions:
