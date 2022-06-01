@@ -4453,22 +4453,22 @@
         },
         {
             "name": "laravel/legacy-factories",
-            "version": "v1.1.0",
+            "version": "v1.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/legacy-factories.git",
-                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a"
+                "reference": "5edc7e7eb76e7b4b29221f32139bcbf806c8870f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
-                "reference": "5e3fe2fd5fda64e20ea5c74c831a7346294e902a",
+                "url": "https://api.github.com/repos/laravel/legacy-factories/zipball/5edc7e7eb76e7b4b29221f32139bcbf806c8870f",
+                "reference": "5edc7e7eb76e7b4b29221f32139bcbf806c8870f",
                 "shasum": ""
             },
             "require": {
-                "illuminate/macroable": "^8.0",
+                "illuminate/macroable": "^8.0|^9.0",
                 "php": "^7.3|^8.0",
-                "symfony/finder": "^3.4|^4.0|^5.0"
+                "symfony/finder": "^3.4|^4.0|^5.0|^6.0"
             },
             "type": "library",
             "extra": {
@@ -4505,7 +4505,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2020-10-27T14:25:32+00:00"
+            "time": "2022-01-13T08:45:08+00:00"
         },
         {
             "name": "mockery/mockery",
