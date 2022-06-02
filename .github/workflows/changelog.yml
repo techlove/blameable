@@ -29,6 +29,6 @@ jobs:
           create_branch: true
 
       - name: Create Pull Request
-        run: gh pr create --title "Update Changelog to ${{ github.event.release.name }} --body ${{ github.event.release.body }} --head changelog-${{ github.event.release.name }} --base main --reviewer laravel-appkit/code-reviewers  
+        run: gh pr create --title "Update Changelog to ${{ github.event.release.name }}" --body ${{ github.event.release.body }} --head changelog-${{ github.event.release.name }} --base main --reviewer laravel-appkit/code-reviewers  
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
