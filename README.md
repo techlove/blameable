@@ -94,7 +94,7 @@ Please see [SECURITY](.github/SECURITY.md) for more details.
 ## Credits
 
 - [Darren Coutts](https://github.com/laravel-appkit)
-- [All Contributors](../../contributors)
+- [All GitHub Contributors](../../contributors)
 
 ## License
 
