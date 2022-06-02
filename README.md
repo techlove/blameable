@@ -77,6 +77,8 @@ $article->deleter // the user model that soft deleted the article
 composer test
 ```
 
+Tests are run automatically when a PR is created.
+
 ### Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently. The file is automatically updated.
